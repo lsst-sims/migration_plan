@@ -38,6 +38,10 @@ Here are things that need to be thought out before migrating.
 
 * What to name it, where to host it:  Could go in lsst organization or lsst-sims. Any name ideas? rubin_sim? 
 
+* How to ensure users don't use the old code. We should have a plan for making sure it is not trivial for users to install an old verison of the code with eups. One option would be to make a final build of `lsst_sims` that does not include the migrated packages. 
+
+* Any name changes we would like to make? I'd say swapping `featureScheduler` to `scheduler` would be good. Could even go `maf` to `viz`.
+
 
 Current repos to migrate:
 
