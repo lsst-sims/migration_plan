@@ -1,5 +1,5 @@
 # Migration Plan
-Planning for migrating sims code to use setup.py instead of eups
+Planning for migrating sims code to use setup.py and conda-forge for installation instead of eups.
 
 
 ## Motivation
