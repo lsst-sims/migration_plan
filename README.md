@@ -26,7 +26,7 @@ Here are things that need to be thought out before migrating.
 
 * What to do with legacy sims code that the project is no longer supporting? Part of the motivation for moving to our own build system is so things like sims_catUtils and API changes in the DM stack are no longer an issue. We need to hand off sims_catUtils, sims_coordUtils, etc.
 
-* Need to check (probably with Tiago), that this is compatible with the operations plan for telescope and site. I don't know what their plans are for their code--this might be a good opportunity for them to migrate to conda as well. I propose that for operations we make a new package (that will have rubin_sims as a dependency) that will have the functionality to load up the current state of the survey and simulate an upcoming night.
+* Sounds like this is compatible with what Telescope and Site are doing, as they are also using conda for their code. I propose that for operations we make a new package (that will have rubin_sims as a dependency) that will have the functionality to load up the current state of the survey and simulate an upcoming night.
 
 * Data files. Many of the repos currently rely on large pre-computed data sets. For example, `sims_maps` has pre-computed HEALpix maps of dust and stellar densities. Currently, we have a mix of solutions for handling these data files. Most of the repos have simple rsync scripts for downloading files hosted at NCSA, while `sims_skybrightness_data` is it's own repo holding only data and no code. I propose we write a simple sub-package that can be called to provide data blobs and downloads files if needed. 
 
@@ -117,6 +117,8 @@ data
 ## Lower Priority Issues
 
 Other decisions that need to be made, but final details aren't needed to start migration.
+
+* Tiago gives the tip that it's good to keep the conda recipe out of the main code repo. Step one will be getting a repo that can build from source with setup.py, but after that we'll want to remember to put conda recipe elsewhere.
 
 * Focal plane geometry. The only thing from the DM stack we currently use is the focal plane geometry. Proposed solution is to write some code that calls the DM stack to build a pre-computed lookup table that can then be used in this package and updated as needed. While the focal plane geometry is currently a dependency, it's not used by default, so there wouldn't be much loss of functionality if we finished this after migration.
 
