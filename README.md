@@ -50,7 +50,7 @@ Current repos to migrate:
 * sims_downtimeModel
 * sims_maf
 * sims_maps
-* sims_movineObjects
+* sims_movingObjects
 * sims_featureScheduler
 * sims_seeingModel
 * sims_skybrightness
@@ -63,11 +63,13 @@ Current repos to migrate:
 repos to replace with new code:
 
 * sims_coordUtils
+* sims_catalogs (copy out the base-class for MAF, already done)
 
 repos that we are no longer supporting:
 
 * sims_catUtils
 * sims_coordUtils
+* sims_catalogs
 
 
 ## New Repo Organization
