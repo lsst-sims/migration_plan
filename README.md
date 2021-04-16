@@ -122,6 +122,27 @@ data
  |   new package that can check for data files and download if needed
 ```
 
+## Expected 3rd Party Dependencies
+
+Here are the packages we expect to have dependencies on
+
+* numpy
+* scipy
+* matplotlib
+* pandas
+* sqlite3
+* pyephem
+* astropy
+* palpy
+* oorb
+* tornado
+* jinja2
+
+If we want to absorb `sims_maf_contrib` as well:
+
+* sncosmo (might actually be easy to get rid of? Only used by `transientAsciiSEDMetric` which I dislike anyway.)
+
+
 ## Lower Priority Issues
 
 Other decisions that need to be made, but final details aren't needed to start migration.
