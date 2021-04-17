@@ -59,6 +59,8 @@ Current repos to migrate:
 * sims_survey_fields
 * sims_photUtiles
 * sims_utils
+* throughputs
+
 
 repos to replace with new code:
 
@@ -74,7 +76,6 @@ repos that we are no longer supporting:
 
 Undecided repos:
 
-* throughputs
 * sims_sed_library
 
 
@@ -88,12 +89,14 @@ rubin_sim
 |
 |--data/
 |--doc/
-|--tests/ (tests here, or in each sub-dir?)
+|--test/ (tests here, or in each sub-dir? I think this can have sub-dirs.)
 |--rubin_sim/
 |--scripts/
 ```
 
 ## rubin_sim Organization
+
+(dropping "sims_" from names. Maybe convert camelCase to underscores)
 
 ```
 scheduler
@@ -107,7 +110,7 @@ site_models
  |   sims_downtimeModel
  |   sims_seeingModel
 photometry
- |   sims_photUtiles
+ |   sims_photUtils
 utils
  |   sims_utils
  |   sims_survey_fields
@@ -119,8 +122,22 @@ skybrightness
 moving_objects
  |   sims_movingObjects
 data
- |   new package that can check for data files and download if needed
+ |   new util that can check for data files and download if needed
 ```
+
+Rough order to migrate things:
+
+* utils
+* data
+* throughputs to data
+* photUtils
+* site_models
+* skybrightness
+* scheduler
+* maf
+* moving_objects
+* 
+
 
 ## Expected 3rd Party Dependencies
 
