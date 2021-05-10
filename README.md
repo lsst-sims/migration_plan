@@ -136,7 +136,6 @@ Rough order to migrate things:
 * scheduler
 * maf
 * moving_objects
-* 
 
 
 ## Expected 3rd Party Dependencies
@@ -148,6 +147,7 @@ Here are the packages we expect to have dependencies on
 * matplotlib
 * pandas
 * sqlite3
+* sqlalchemy
 * pyephem
 * astropy
 * palpy
@@ -158,6 +158,11 @@ Here are the packages we expect to have dependencies on
 If we want to absorb `sims_maf_contrib` as well:
 
 * sncosmo (might actually be easy to get rid of? Only used by `transientAsciiSEDMetric` which I dislike anyway.)
+
+
+## The external data sets
+
+One way to potentially manage the external data sets is to have directories for each set and label them. For example, we could have `throughputs_2021_May.tgz`, `throughputs_2022_June.tgz`, etc. stored at NCSA. Then the code has a hard-coded dictionary with keys of dataset-name and values of filename. Updating a dataset is a two-step process of creating a new .tgz file and updating the dictionary. This way it's possible to reconstruct the exact state of the software from any git commit. There is an issue that one must remember to re-download the proper dataset if you check out an earlier commit. Given that this is a fairly niche use-case, I think we can have a little section in the readme outlining what one has to do if they want exact repeatability from an earlier version.
 
 
 ## Lower Priority Issues
