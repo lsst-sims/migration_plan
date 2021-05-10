@@ -125,6 +125,22 @@ data
  |   new util that can check for data files and download if needed
 ```
 
+## rubin_sim_data directory
+
+The code will check for an environement variable RUBIN_SIM_DATA_DIR. If none is specified, it will check for (and create if needed) $HOME/rubin_sim_data
+
+```
+throughputs
+|
+site_models
+|
+skybrightness
+|
+skybrightness_pre
+|
+
+```
+
 Rough order to migrate things:
 
 * utils
